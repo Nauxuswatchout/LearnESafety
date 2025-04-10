@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">Digital Addiction</h1>
+  <div class="danger-page-container">
+    <div class="danger-info-section">
+      <div class="danger-main-icon">
+        <span class="material-icons">phonelink_lock</span>
+      </div>
+
+      <div class="danger-definition">
+        <h2>What is Digital Addiction?</h2>
+        <p>
+          Digital addiction refers to excessive use of digital devices, social
+          media, video games, or other online activities to the point where it
+          interferes with daily life, relationships, and emotional well-being.
+          It's characterized by a compulsive need to use digital technology and
+          difficulty controlling the amount of time spent online.
+        </p>
+        <p>
+          Children and teenagers are particularly vulnerable to digital
+          addiction due to their developing brains, social pressures, and the
+          intentionally engaging design of many apps and games that incorporate
+          reward systems to encourage continued use.
+        </p>
+      </div>
+
+      <div class="danger-warning-signs">
+        <h2>Warning Signs</h2>
+        <ul>
+          <li>Irritability, anxiety, or distress when unable to use devices</li>
+          <li>Loss of interest in offline activities previously enjoyed</li>
+          <li>Declining performance at school</li>
+          <li>Using devices to escape problems or improve mood</li>
+          <li>Failed attempts to cut back on screen time</li>
+          <li>Neglecting personal hygiene or skipping meals to stay online</li>
+          <li>Disrupted sleep patterns due to late-night device use</li>
+          <li>Lying about or hiding the amount of time spent online</li>
+        </ul>
+      </div>
+
+      <div class="danger-prevention">
+        <h2>Prevention Tips</h2>
+        <ul>
+          <li>Establish tech-free zones and times in your home</li>
+          <li>Create a family media use plan with clear boundaries</li>
+          <li>Encourage diverse interests and physical activities offline</li>
+          <li>Use apps to monitor and limit screen time</li>
+          <li>Model healthy digital habits yourself</li>
+          <li>Keep devices out of bedrooms at night</li>
+          <li>Schedule regular family activities without technology</li>
+          <li>Teach children mindful use of technology</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="danger-data-section">
+      <h2>Statistics and Articles</h2>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="resources-section">
+        <h2>Resources for Parents</h2>
+        <ul>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+{% endblock %}

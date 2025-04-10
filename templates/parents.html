@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/for_parents.jpeg') }}"
+    alt="E-Safety for Parents Cover"
+    class="page-cover-image"
+  />
+  <div class="page-cover-title">
+    <h1>E-Safety for Parents</h1>
+    <p>Resources to help keep your family safe online</p>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <div class="card-grid">
+    <!-- Internet Guidelines Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/guidelines.jpg') }}"
+          alt="Internet Guidelines"
+        />
+      </div>
+      <h2 class="card-title">Internet Guidelines</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Internet Guidelines</h3>
+          <p>
+            General advice and best practices for online safety. Learn how to
+            set up proper boundaries. Educate yourself and your family.
+          </p>
+          <a href="{{ url_for('internet_guidelines') }}" class="card-button"
+            >Explore Guidelines</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Learn the Dangers Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers.jpg') }}"
+          alt="Learn the Dangers"
+        />
+      </div>
+      <h2 class="card-title">Learn the Dangers</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Learn the Dangers</h3>
+          <p>
+            Knowledge is the first step to protecting your family from digital
+            dangers. Understand the various risks and threats that exist online.
+          </p>
+          <a href="{{ url_for('learn_dangers') }}" class="card-button"
+            >Discover Dangers</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Questionnaire Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/questionnaire.jpg') }}"
+          alt="Questionnaire"
+        />
+      </div>
+      <h2 class="card-title">Questionnaire</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            Test your knowledge about internet safety with our interactive quiz.
+            Get personalized recommendations based on your responses and improve
+            your understanding.
+          </p>
+          <a href="{{ url_for('questionnaire') }}" class="card-button"
+            >Take Quiz</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

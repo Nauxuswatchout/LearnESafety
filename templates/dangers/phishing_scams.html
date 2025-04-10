@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">Phishing & Scams</h1>
+  <div class="danger-page-container">
+    <div class="danger-info-section">
+      <div class="danger-main-icon">
+        <span class="material-icons">phishing</span>
+      </div>
+
+      <div class="danger-definition">
+        <h2>What are Phishing & Online Scams?</h2>
+        <p>
+          Phishing is a type of online scam where criminals send deceptive
+          messages designed to trick people into revealing sensitive information
+          or installing malicious software. These attacks often disguise
+          themselves as trustworthy entities such as banks, social media
+          platforms, or well-known companies.
+        </p>
+        <p>
+          For children and teenagers, phishing can occur through fake gaming
+          websites, social media messages, free gift offers, or even fake
+          messages that appear to be from friends or family members.
+        </p>
+      </div>
+
+      <div class="danger-warning-signs">
+        <h2>Warning Signs</h2>
+        <ul>
+          <li>Urgent requests for personal information</li>
+          <li>Poor spelling and grammar in communications</li>
+          <li>
+            Offers that seem too good to be true (free games, gifts, in-game
+            currency)
+          </li>
+          <li>
+            Links that lead to websites with URLs slightly different from
+            legitimate sites
+          </li>
+          <li>Messages asking for account credentials or personal details</li>
+          <li>Pop-ups or messages saying your device is infected</li>
+          <li>
+            Unsolicited contact from "friends" on gaming platforms or social
+            media asking for help
+          </li>
+          <li>Requests to download attachments or apps from unknown sources</li>
+        </ul>
+      </div>
+
+      <div class="danger-prevention">
+        <h2>Prevention Tips</h2>
+        <ul>
+          <li>Teach critical thinking about online content and offers</li>
+          <li>
+            Install and maintain updated anti-virus and anti-malware software
+          </li>
+          <li>
+            Never click on suspicious links or download unknown attachments
+          </li>
+          <li>
+            Verify requests for information through official channels or
+            websites
+          </li>
+          <li>Use strong, unique passwords for different accounts</li>
+          <li>Enable two-factor authentication when available</li>
+          <li>Check website URLs carefully before entering any information</li>
+          <li>
+            Teach children to always consult with an adult before making online
+            purchases or providing information
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="danger-data-section">
+      <h2>Statistics and Articles</h2>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="resources-section">
+        <h2>Resources for Parents</h2>
+        <ul>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+{% endblock %}

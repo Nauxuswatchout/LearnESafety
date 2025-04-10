@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block content %}
+<div class="cover-container">
+  <img
+    src="{{ url_for('static', filename='images/cover.jpg') }}"
+    alt="E-Safety Cover Image"
+    class="cover-image"
+  />
+  <div class="cover-title">
+    <h1>Welcome to LearnESafety</h1>
+    <p>Did you know this image was created by AI?</p>
+    <p>Learn how to stay safe online</p>
+    <a href="#main-content" class="scroll-down">Explore</a>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <h2 class="page-title">About LearnESafety</h2>
+  <p class="page-description">
+    LearnESafety provides information and resources to help both parents and
+    children navigate the digital world safely. Understanding online safety is
+    crucial in today's connected environment.
+  </p>
+
+  <div class="card-grid">
+    <!-- Parents Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/parents.jpg') }}"
+          alt="For Parents"
+        />
+      </div>
+      <h2 class="card-title">For Parents</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>For Parents</h3>
+          <p>
+            Guide to help you and your children stay safe online. Learn about
+            online dangers, best practices, and how to protect your family in
+            the digital world.
+          </p>
+          <a href="{{ url_for('parents') }}" class="card-button"
+            >Parent Resources</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Children Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/children.jpg') }}"
+          alt="For Children"
+        />
+      </div>
+      <h2 class="card-title">For Children</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>For Children</h3>
+          <p>
+            Learn about internet safety in a fun and engaging way. Discover how
+            to protect yourself online, be a good digital citizen, and enjoy the
+            internet safely.
+          </p>
+          <a href="{{ url_for('children') }}" class="card-button"
+            >Children's Guide</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Questionnaire Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/quiz.jpg') }}"
+          alt="Take the Quiz"
+        />
+      </div>
+      <h2 class="card-title">E-Safety Quiz</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            How much do you know about online safety? Take our interactive quiz
+            to test your knowledge and get personalized recommendations to
+            improve your digital safety.
+          </p>
+          <a href="{{ url_for('questionnaire') }}" class="card-button"
+            >Take Quiz</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">Inappropriate Content</h1>
+  <div class="danger-page-container">
+    <div class="danger-info-section">
+      <div class="danger-main-icon">
+        <span class="material-icons">content_cut</span>
+      </div>
+
+      <div class="danger-definition">
+        <h2>What is Inappropriate Content?</h2>
+        <p>
+          Inappropriate content refers to material not suitable for children
+          including violent content, pornography, hate speech, drug use, and
+          other adult themes that children may stumble upon while browsing the
+          internet or using apps.
+        </p>
+        <p>
+          Children can encounter inappropriate content accidentally through web
+          searches, pop-up ads, mistyped URLs, or through content shared by
+          others. Some content may be harmful, upsetting, or confusing for
+          children based on their age and maturity level.
+        </p>
+      </div>
+
+      <div class="danger-warning-signs">
+        <h2>Warning Signs</h2>
+        <ul>
+          <li>
+            Quickly changing screens or closing browsers when adults approach
+          </li>
+          <li>Cleared browser history on a regular basis</li>
+          <li>
+            Using language or making references that are not age-appropriate
+          </li>
+          <li>Becoming secretive about online activities</li>
+          <li>Showing signs of distress after using the internet</li>
+          <li>
+            Spending unusual amounts of time online, particularly late at night
+          </li>
+          <li>Receiving messages or media from unknown sources</li>
+          <li>
+            Changes in behavior or unusual questions about sexual or violent
+            content
+          </li>
+        </ul>
+      </div>
+
+      <div class="danger-prevention">
+        <h2>Prevention Tips</h2>
+        <ul>
+          <li>Use parental controls and content filters on all devices</li>
+          <li>Keep computers and devices in common areas of the home</li>
+          <li>Use child-friendly search engines like Kiddle or KidzSearch</li>
+          <li>Regularly check browser history and monitor online activities</li>
+          <li>
+            Create separate user accounts for children with appropriate
+            restrictions
+          </li>
+          <li>
+            Teach children to immediately close any content that makes them
+            uncomfortable
+          </li>
+          <li>
+            Maintain open conversations about appropriate content and online
+            safety
+          </li>
+          <li>Review and approve apps before children download them</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="danger-data-section">
+      <h2>Statistics and Articles</h2>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="resources-section">
+        <h2>Resources for Parents</h2>
+        <ul>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">Online Predators</h1>
+  <div class="danger-page-container">
+    <div class="danger-info-section">
+      <div class="danger-main-icon">
+        <span class="material-icons">person_off</span>
+      </div>
+
+      <div class="danger-definition">
+        <h2>What are Online Predators?</h2>
+        <p>
+          Online predators are individuals who use the internet to identify and
+          groom potential victims, typically through flattery, sympathy, and by
+          offering understanding or gifts. They may pose as peers or develop a
+          false identity to build trust.
+        </p>
+        <p>
+          These individuals often target vulnerable children and teenagers
+          through social media platforms, online games, chat rooms, and
+          messaging apps where they can establish private communications.
+        </p>
+      </div>
+
+      <div class="danger-warning-signs">
+        <h2>Warning Signs</h2>
+        <ul>
+          <li>Spending excessive time online, especially at night</li>
+          <li>Finding pornography on child's devices</li>
+          <li>Receiving phone calls from unfamiliar people</li>
+          <li>Receiving gifts, mail, or packages from unknown sources</li>
+          <li>
+            Turning the computer screen off or quickly changing screens when
+            parents enter the room
+          </li>
+          <li>Becoming withdrawn from family and friends</li>
+          <li>Using an online account that belongs to someone else</li>
+          <li>
+            Talking about "new friends" they've met online but being secretive
+            about details
+          </li>
+        </ul>
+      </div>
+
+      <div class="danger-prevention">
+        <h2>Prevention Tips</h2>
+        <ul>
+          <li>Teach children never to share personal information online</li>
+          <li>
+            Ensure privacy settings are set to the highest level on all devices
+            and platforms
+          </li>
+          <li>Discourage communication with strangers online</li>
+          <li>
+            Use parental controls and monitoring software for younger children
+          </li>
+          <li>Keep computers and devices in common areas of the home</li>
+          <li>Regularly check your child's online friends and contacts</li>
+          <li>Discuss the dangers of meeting online friends in person</li>
+          <li>
+            Create an environment where children feel comfortable reporting
+            concerning interactions
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="danger-data-section">
+      <h2>Statistics and Articles</h2>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="data-viz-container">
+        <h3>Title</h3>
+        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
+          Visualisation
+        </div>
+        <p class="chart-description">Description</p>
+      </div>
+
+      <div class="resources-section">
+        <h2>Resources for Parents</h2>
+        <ul>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+          <li><strong>Title</strong>: Short description</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+{% endblock %}

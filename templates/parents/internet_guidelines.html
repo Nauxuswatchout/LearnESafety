@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">Internet Guidelines</h1>
+  <p class="page-description">
+    General advice on how to stay safe on the internet
+  </p>
+
+  <div class="guidelines-container">
+    <div class="guideline-section">
+      <h2>Protecting Personal Information</h2>
+      <div class="guideline-content">
+        <ul>
+          <li>
+            <h3>Keep private information private</h3>
+            <p>
+              Never share your full name, address, phone number, school name, or
+              financial information online, especially in public forums or with
+              people you don't know personally.
+            </p>
+          </li>
+          <li>
+            <h3>Use strong, unique passwords</h3>
+            <p>
+              Create complex passwords that include a mix of letters, numbers,
+              and symbols. Use different passwords for different accounts and
+              change them regularly.
+            </p>
+          </li>
+          <li>
+            <h3>Enable two-factor authentication</h3>
+            <p>
+              When available, enable two-factor authentication for an extra
+              layer of security on important accounts.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guideline-section">
+      <h2>Family Online Safety Measures</h2>
+      <div class="guideline-content">
+        <ul>
+          <li>
+            <h3>Set up parental controls</h3>
+            <p>
+              Use built-in parental controls on devices, browsers, and
+              applications to filter inappropriate content and limit screen
+              time.
+            </p>
+          </li>
+          <li>
+            <h3>Keep devices in common areas</h3>
+            <p>
+              Encourage the use of computers, tablets, and other devices in
+              shared family spaces rather than in bedrooms.
+            </p>
+          </li>
+          <li>
+            <h3>Establish clear rules</h3>
+            <p>
+              Create and discuss family internet rules, including time limits,
+              appropriate websites and apps, and consequences for breaking
+              rules.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guideline-section">
+      <h2>Safe Online Communication</h2>
+      <div class="guideline-content">
+        <ul>
+          <li>
+            <h3>Be cautious with new online friends</h3>
+            <p>
+              Remember that people online may not be who they claim to be. Never
+              meet someone in person whom you've only met online without parent
+              supervision.
+            </p>
+          </li>
+          <li>
+            <h3>Think before posting</h3>
+            <p>
+              Once something is posted online, it can be difficult or impossible
+              to remove. Consider how posts might affect your reputation or
+              feelings of others.
+            </p>
+          </li>
+          <li>
+            <h3>Report inappropriate behavior</h3>
+            <p>
+              If someone is making you uncomfortable online, tell a trusted
+              adult and report the behavior to the platform.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guideline-section">
+      <h2>Recognise and Avoid Online Scams</h2>
+      <div class="guideline-content">
+        <ul>
+          <li>
+            <h3>Be wary of "too good to be true" offers</h3>
+            <p>
+              If something seems too good to be true, it probably is. Be
+              skeptical of free giveaways, prizes, or incredible deals.
+            </p>
+          </li>
+          <li>
+            <h3>Check before clicking</h3>
+            <p>
+              Hover over links to see where they actually lead before clicking.
+              Don't open attachments or click links in emails from unknown
+              senders.
+            </p>
+          </li>
+          <li>
+            <h3>Keep software updated</h3>
+            <p>
+              Regularly update your operating system, browsers, and apps to
+              protect against security vulnerabilities.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="{{ url_for('parents') }}" class="back-button"
+      >← Back to Parent Resources</a
+    >
+  </div>
+</div>
+{% endblock %}
