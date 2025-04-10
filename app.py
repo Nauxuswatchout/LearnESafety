@@ -1,5 +1,7 @@
+
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 import mysql.connector
+
 # import pymysql
 import os
 import datetime
@@ -43,6 +45,7 @@ conn = pymysql.connect(
  """
 
 
+
 def login_required(route_function):
     def wrapper(*args, **kwargs):
         # Check if user is authenticated
@@ -54,6 +57,7 @@ def login_required(route_function):
             return redirect(url_for('login'))
     wrapper.__name__ = route_function.__name__
     return wrapper
+
 
 @app.route('/')
 def login():
