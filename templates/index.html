@@ -1,14 +1,17 @@
 {% extends "base.html" %} {% block content %}
 <div class="cover-container">
   <img
-    src="{{ url_for('static', filename='images/cover.jpg') }}"
+    src="{{ url_for('static', filename='images/covers/cover.jpg') }}"
     alt="E-Safety Cover Image"
     class="cover-image"
   />
   <div class="cover-title">
     <h2>Think You Know the Internet?</h2>
     <p>That image behind? It was made by AI and it looks real, right?</p>
-    <p>Learn to navigate online risks, protect your family, and build digital confidence.</p>
+    <p>
+      Learn to navigate online risks, protect your family, and build digital
+      confidence.
+    </p>
     <a href="#main-content" class="scroll-down">Explore</a>
   </div>
 </div>
@@ -18,17 +21,24 @@
     <div class="about-text">
       <h2 class="page-title">About LearnESafety</h2>
       <p class="page-description">
-        LearnESafety empowers parents and families to better understand the digital world and stay safe within it.
-        Our mission is to simplify online safety with clear, accessible resources that make even the most complex topics easy to grasp.
+        LearnESafety empowers parents and families to better understand the
+        digital world and stay safe within it. Our mission is to simplify online
+        safety with clear, accessible resources that make even the most complex
+        topics easy to grasp.
       </p>
       <p class="page-description">
-        Whether you're new to technology or just want to stay informed, you'll find practical advice
-        and interactive tools designed to help you and your children thrive online with confidence.
+        Whether you're new to technology or just want to stay informed, you'll
+        find practical advice and interactive tools designed to help you and
+        your children thrive online with confidence.
       </p>
     </div>
-    
+
     <div class="about-right">
-      <img src="{{ url_for('static', filename='images/animated_about_image.png') }}" alt="Online Safety Animation" class="about-image" />
+      <img
+        src="{{ url_for('static', filename='images/animated_about_image.png') }}"
+        alt="Online Safety Animation"
+        class="about-image"
+      />
     </div>
   </div>
 
@@ -37,14 +47,14 @@
     <div class="card interactive-card">
       <div class="card-image">
         <img
-          src="{{ url_for('static', filename='images/parents.jpg') }}"
+          src="{{ url_for('static', filename='images/resources.jpg') }}"
           alt="For Parents"
         />
       </div>
-      <h2 class="card-title">For Parents</h2>
+      <h2 class="card-title">Resources for Parents</h2>
       <div class="card-overlay">
         <div class="card-content">
-          <h3>For Parents</h3>
+          <h3>Resources for Parents</h3>
           <p>
             Guide to help you and your children stay safe online. Learn about
             online dangers, best practices, and how to protect your family in
@@ -61,14 +71,14 @@
     <div class="card interactive-card">
       <div class="card-image">
         <img
-          src="{{ url_for('static', filename='images/children.jpg') }}"
+          src="{{ url_for('static', filename='images/playground.jpg') }}"
           alt="For Children"
         />
       </div>
-      <h2 class="card-title">For Children</h2>
+      <h2 class="card-title">Educational Playground</h2>
       <div class="card-overlay">
         <div class="card-content">
-          <h3>For Children</h3>
+          <h3>Educational Playground</h3>
           <p>
             Learn about internet safety in a fun and engaging way. Discover how
             to protect yourself online, be a good digital citizen, and enjoy the
@@ -85,7 +95,7 @@
     <div class="card interactive-card">
       <div class="card-image">
         <img
-          src="{{ url_for('static', filename='images/quiz.jpg') }}"
+          src="{{ url_for('static', filename='images/questionnaire.jpeg') }}"
           alt="Take the Quiz"
         />
       </div>

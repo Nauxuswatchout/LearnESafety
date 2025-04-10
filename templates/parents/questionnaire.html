@@ -1,13 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <div class="page-content">
   <h1 class="page-title">E-Safety Questionnaire</h1>
-  <p class="page-description">
-    Test your knowledge about internet safety with this interactive quiz
-  </p>
 
   <div class="questionnaire-container">
     <!-- Progress indicator -->
-    <div class="progress-container">
+    <div class="progress-container" id="progress-container">
       <div class="progress-bar">
         <div id="progress-fill"></div>
       </div>
@@ -56,23 +53,24 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     // Get randomly selected questions
-    const questions = getRandomQuestions(20);
+    const questions = getRandomQuestions(25);
 
     // Current question index and scores
     let currentQuestionIndex = 0;
     let categoryScores = {
-      technical: 0,
-      communication: 0,
-      awareness: 0,
-      boundaries: 0,
-      monitoring: 0,
-      modeling: 0,
+      scams: 0,
+      phishing: 0,
+      malware: 0,
+      harassment: 0,
+      inappropriate: 0,
+      privacy: 0,
     };
     let answers = [];
 
     // DOM elements
     const questionsContainer = document.getElementById("questions-container");
     const resultsContainer = document.getElementById("results-container");
+    const progressContainer = document.getElementById("progress-container");
     const progressFill = document.getElementById("progress-fill");
     const questionCounter = document.getElementById("question-counter");
 
@@ -80,12 +78,12 @@
     function initQuestionnaire() {
       currentQuestionIndex = 0;
       categoryScores = {
-        technical: 0,
-        communication: 0,
-        awareness: 0,
-        boundaries: 0,
-        monitoring: 0,
-        modeling: 0,
+        scams: 0,
+        phishing: 0,
+        malware: 0,
+        harassment: 0,
+        inappropriate: 0,
+        privacy: 0,
       };
       answers = [];
 
@@ -94,6 +92,7 @@
 
       resultsContainer.style.display = "none";
       questionsContainer.style.display = "block";
+      progressContainer.style.display = "block";
     }
 
     // Display a specific question
@@ -165,8 +164,9 @@
 
     // Display the results
     function showResults() {
-      // Hide questions, show results
+      // Hide questions and progress container, show results
       questionsContainer.style.display = "none";
+      progressContainer.style.display = "none";
       resultsContainer.style.display = "block";
 
       // Calculate overall score
@@ -262,13 +262,13 @@
 
         // Set color based on score
         if (categoryPercentage >= 80) {
-          scoreBar.classList.add("excellent");
+          scoreBar.style.backgroundColor = "#27ae60"; // Excellent color
         } else if (categoryPercentage >= 60) {
-          scoreBar.classList.add("good");
+          scoreBar.style.backgroundColor = "#3498db"; // Good color
         } else if (categoryPercentage >= 40) {
-          scoreBar.classList.add("moderate");
+          scoreBar.style.backgroundColor = "#f39c12"; // Moderate color
         } else {
-          scoreBar.classList.add("needs-improvement");
+          scoreBar.style.backgroundColor = "#e74c3c"; // Needs improvement color
         }
 
         const scoreLabel = document.createElement("span");

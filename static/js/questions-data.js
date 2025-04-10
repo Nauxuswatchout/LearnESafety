@@ -5,400 +5,341 @@
  */
 
 const questionDatabase = {
-  // Technical safety knowledge questions
-  technical: [
+  // SCAM QUESTIONS
+  scams: [
     {
-      question: "Which of these passwords is most secure?",
+      question:
+        "You get a message claiming you’ve won a $500 gift card. What should you do first?",
       options: [
-        "password123",
-        "MyChild'sName2010",
-        "Tr0ub4dor&3!Zx",
-        "qwerty987",
+        "Click the link to claim it",
+        "Reply and ask who it's from",
+        "Report it as suspicious",
+        "Ignore it and delete immediately",
       ],
-      scores: [0, 1, 3, 0],
-    },
-    {
-      question: "What do you do when installing a new app for your child?",
-      options: [
-        "Install whatever they want",
-        "Quickly check the age rating",
-        "Read reviews and check settings",
-        "Research the app, adjust privacy settings, and discuss rules for use",
-      ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "What's your approach to parental controls?",
-      options: [
-        "Don't use them at all",
-        "Basic content filters on the home internet",
-        "Device-level controls on some devices",
-        "Comprehensive controls appropriate for age, with regular updates",
-      ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you secure your home Wi-Fi network?",
-      options: [
-        "I use the default password that came with the router",
-        "I created a simple password that's easy to remember",
-        "I use a strong password but share it with neighbors/visitors",
-        "I use a strong unique password and WPA2/WPA3 encryption",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 1],
     },
     {
       question:
-        "How often do you update the software on your family's devices?",
+        "What’s the most reliable way to verify if a message asking for money is real?",
       options: [
-        "I ignore update notifications",
-        "I update when devices stop working properly",
-        "I update occasionally when I remember",
-        "I ensure automatic updates are enabled and regularly check for updates",
+        "Ask them directly via that message",
+        "Send money and check later",
+        "Call the person through a trusted number",
+        "Look at their profile picture",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 1],
+    },
+    {
+      question:
+        "An ad says you can double your money by “investing now.” What’s your first thought?",
+      options: [
+        "It sounds like a smart move",
+        "It’s likely a scam",
+        "I’ll try with a small amount",
+        "I’ll share it with friends",
+      ],
+      scores: [0, 3, 0, 0],
+    },
+    {
+      question:
+        "A caller says they’re from the ATO (tax office) and you owe money. What’s the best action?",
+      options: [
+        "Pay immediately",
+        "Give them your details",
+        "Hang up and call ATO directly",
+        "Stay on the line for more info",
+      ],
+      scores: [0, 0, 3, 0],
     },
   ],
 
-  // Parent-child communication questions
-  communication: [
+  // PHISHING QUESTIONS
+  phishing: [
     {
-      question: "How do you discuss online interactions with your child?",
+      question:
+        "Your bank sends an email saying “Verify your account now!” with a link. What do you do?",
       options: [
-        "I don't, they'll figure it out",
-        "Only when problems arise",
-        "Occasional conversations about being nice online",
-        "Regular discussions about digital citizenship and online behavior",
+        "Click the link to log in",
+        "Forward the email to friends",
+        "Contact the bank through their website",
+        "Reply to the email to ask",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
+    },
+    {
+      question: "Which of these is a sign of a phishing attempt?",
+      options: [
+        "Personalised greeting",
+        "Urgent tone and unknown link",
+        "Secure domain name",
+        "perfect grammar and spelling",
+      ],
+      scores: [0, 3, 0, 1],
     },
     {
       question:
-        "How would you respond if your child encountered inappropriate content online?",
+        "A message says your delivery is delayed and includes a suspicious link. What should you do?",
       options: [
-        "They probably won't tell me",
-        "Tell them not to look at it again",
-        "Block the content and briefly discuss why it's inappropriate",
-        "Use it as a teaching opportunity, adjust controls, and maintain open dialogue",
+        "Click and enter your info",
+        "Ignore and delete",
+        "Share with others to check",
+        "Call the delivery company using the link",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
     {
-      question:
-        "What do you teach your child about sharing personal information online?",
+      question: "How should you handle unexpected attachments in emails?",
       options: [
-        "Haven't discussed it",
-        "Just told them not to share anything",
-        "Explained what personal information is and why not to share it",
-        "Comprehensive discussions about what is safe to share in different contexts",
+        "Download and check",
+        "Open if it’s from someone you know",
+        "Scan with antivirus first",
+        "Trust if subject line looks familiar",
       ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "What's your approach to teaching digital literacy?",
-      options: [
-        "The school should handle that",
-        "I answer questions if they ask",
-        "Occasional discussions about evaluating online information",
-        "Ongoing education about critical thinking and media literacy skills",
-      ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you talk to your child about cyberbullying?",
-      options: [
-        "I haven't discussed it with them",
-        "I told them to ignore bullies online",
-        "I've explained what cyberbullying is and to tell me if it happens",
-        "Regular conversations about recognizing, preventing, and responding to cyberbullying",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
   ],
 
-  // Threat awareness questions
-  awareness: [
+  // MALWARE
+  malware: [
     {
       question:
-        "How would you recognize if your child is experiencing cyberbullying?",
+        "Your child wants to install a game they found in an ad. What’s safest?",
       options: [
-        "They'd just tell me if it happened",
-        "Watch for crying after using devices",
-        "Notice changes in mood, device use, and social patterns",
-        "Regular check-ins about online experiences and watching for behavioral changes",
+        "Download it directly",
+        "Ask a friend if it’s okay",
+        "Only install apps from official stores",
+        "Allow it after checking the screenshots",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
     {
-      question:
-        "How familiar are you with the apps and platforms your child uses?",
+      question: "A pop-up says your computer is infected. What do you do?",
       options: [
-        "Not familiar at all",
-        "I know the names but not how they work",
-        "I understand the basics of most apps they use",
-        "I've researched or tried most platforms they use",
+        "Click to fix it",
+        "Close your browser and ignore",
+        "Restart your PC",
+        "Trust the warning and download software",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
     {
-      question: "What do you know about phishing and scams targeting children?",
+      question: "What’s the safest way to use a USB someone gives you?",
       options: [
-        "Very little",
-        "I know what phishing is but not how it targets kids",
-        "I understand common tactics used to trick children",
-        "Comprehensive knowledge of various scams and how to prevent them",
+        "What’s the safest way to use a USB someone gives you?",
+        "Use antivirus to scan it first",
+        "Use only on public computers",
+        "Open only image files",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
     {
-      question: "How do you stay updated on new online safety concerns?",
+      question: "What’s a common way malware spreads?",
       options: [
-        "I don't keep up with this information",
-        "I hear things from other parents occasionally",
-        "I read articles when they come across my feed",
-        "I actively seek information and updates on e-safety",
+        "Email attachments from unknown senders",
+        "Using strong passwords",
+        "Saving to the cloud",
+        "Browsing news sites",
       ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question:
-        "What would you do if you noticed a stranger interacting with your child online?",
-      options: [
-        "Nothing, it's normal to make friends online",
-        "Tell my child to block them without investigating",
-        "Ask my child about the person and check their conversation",
-        "Investigate fully, discuss online stranger danger, and report if necessary",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [3, 0, 0, 0],
     },
   ],
 
-  // Setting healthy boundaries questions
-  boundaries: [
+  // ONLINE HARASSMENT
+  harassment: [
     {
-      question: "How do you handle your child's screen time?",
+      question:
+        "Your child receives repeated unwanted messages online. What’s your response?",
       options: [
-        "No limits, they manage their own time",
-        "Loose guidelines but no enforcement",
-        "Set time limits but make exceptions frequently",
-        "Clear, consistent limits appropriate for their age",
+        "Ignore and move on",
+        "Block and report the sender",
+        "Tell them to stop messaging",
+        "Delete the app",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 1],
+    },
+    {
+      question: "Which is an example of online harassment?",
+      options: [
+        "Posting public compliments",
+        "Sharing someone’s photo with permission",
+        "Repeatedly mocking someone online",
+        "Asking for help in a group chat",
+      ],
+      scores: [0, 0, 3, 0],
     },
     {
       question:
-        "What would you do if your child wanted to post pictures online?",
+        "You notice someone is being bullied in a group chat. What’s the right action?",
       options: [
-        "Let them post whatever they want",
-        "Tell them not to post any pictures ever",
-        "Allow it on private accounts only",
-        "Discuss appropriate content, privacy settings, and potential consequences",
+        "Watch quietly",
+        "Join in to tease",
+        "Stand up and report it",
+        "Leave the chat",
       ],
-      scores: [0, 0, 2, 3],
+      scores: [0, 0, 3, 0],
     },
     {
-      question: "What's your approach to online gaming?",
+      question: "What’s one way to reduce online harassment risks?",
       options: [
-        "Any game is fine, it's just entertainment",
-        "Check age ratings only",
-        "Research content and disable chat features",
-        "Research games, discuss content, monitor interactions, and set time limits",
+        "Post all your opinions publicly",
+        "Share personal info freely",
+        "Adjust privacy settings",
+        "Accept friend requests from everyone",
       ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question:
-        "What would you do if your child wanted to meet someone they met online?",
-      options: [
-        "Let them meet whoever they want",
-        "Forbid it entirely without discussion",
-        "Ask questions about who it is first",
-        "Have extensive conversation, verify identity, and accompany if appropriate",
-      ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you handle device use during family meals?",
-      options: [
-        "Everyone uses devices freely during meals",
-        "I try to discourage it but don't enforce rules",
-        "No devices during dinner only",
-        "We have device-free family meals as a consistent rule",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
   ],
 
-  // Appropriate monitoring questions
-  monitoring: [
+  // INAPPROPRIATE CONTENT
+  inappropriate: [
     {
-      question: "How often do you check your child's online activities?",
+      question:
+        "What should a child do if they come across violent or explicit content?",
       options: [
-        "Never, I respect their privacy completely",
-        "Rarely, only if I suspect an issue",
-        "Occasionally, with casual check-ins",
-        "Regularly, with open communication about it",
+        "Share with friends",
+        "Keep watching",
+        "Report and tell a trusted adult",
+        "Bookmark for later",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
     {
       question:
-        "What would you do if your child received a friend request from someone you don't know?",
+        "Which tool helps prevent exposure to inappropriate websites?  ",
       options: [
-        "Let them accept it, it's their decision",
-        "Tell them to reject it without explanation",
-        "Ask who it is but accept their answer",
-        "Discuss who it might be and help them evaluate if it's safe",
+        "VPN",
+        "Parental control software",
+        "Incognito mode",
+        "Auto-fill browser tools",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
     {
-      question: "How do you balance respecting privacy and ensuring safety?",
+      question: "What’s a sign a game may not be suitable for your child?",
       options: [
-        "Complete privacy, no monitoring",
-        "Only check when there's a problem",
-        "Some monitoring with limited explanation",
-        "Age-appropriate monitoring with open communication about why",
+        "Cartoon graphics",
+        "Age rating is 18+",
+        "It’s free",
+        "It’s popular on TikTok",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
     {
-      question: "How do you monitor your child's social media use?",
+      question:
+        "Which approach helps prevent children from seeing harmful content online?",
       options: [
-        "I don't monitor their social media",
-        "I occasionally look at their public posts",
-        "I'm connected to them on platforms but don't actively check",
-        "I'm connected, review their friends/activities and discuss regularly",
+        "Checking browsing history daily",
+        "Giving them full independence",
+        "Using age filters and settings",
+        "Asking friends what their kids watch",
       ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you handle monitoring your child's private messages?",
-      options: [
-        "I never check their private messages",
-        "I only check if I suspect a problem",
-        "I spot-check occasionally based on their age",
-        "I have age-appropriate access with clear communication about why",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
   ],
 
-  // Positive role modeling questions
-  modeling: [
+  // PRIVACY AND TRACKING
+  privacy: [
+    {
+      question: "A website asks to access your microphone. What do you do?",
+      options: [
+        "Always allow",
+        "Say yes without thinking",
+        "Only allow if necessary and trusted",
+        "Disable your sound instead",
+      ],
+      scores: [0, 0, 3, 0],
+    },
+    {
+      question: "What’s a “cookie” on a website used for?",
+      options: [
+        "Saving passwords",
+        "Tracking user activity",
+        "Making sites load faster",
+        "Blocking malware",
+      ],
+      scores: [0, 3, 0, 0],
+    },
     {
       question:
-        "How do you handle your own social media presence as it relates to your children?",
+        "What kind of personal info should your child avoid sharing online?",
       options: [
-        "Share whatever I want about them",
-        "Share cute photos but not embarrassing ones",
-        "Only share occasional photos with limited audiences",
-        "Ask permission before posting about them and respect their digital footprint",
+        "Favourite show",
+        "Pet’s name",
+        "Home address and school",
+        "Favourite food",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 3, 0],
     },
     {
-      question: "How do you model healthy technology use?",
+      question: "What is a good practice when creating an online account?",
       options: [
-        "I don't think about it",
-        "I try not to use my phone too much around them",
-        "I follow some tech-free times and talk about digital well-being",
-        "I actively model balanced tech use and discuss my choices with them",
+        "Use the same password everywhere",
+        "Skip privacy settings",
+        "Set your profile to “Public”",
+        "Choose private account settings",
       ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 0, 0, 3],
     },
     {
-      question: "What do you do when you receive messages during family time?",
+      question: "How do tracking pixels impact privacy?",
       options: [
-        "I always respond to messages immediately",
-        "I try to wait but usually respond quickly",
-        "I usually wait until family time is over unless it's urgent",
-        "I set my phone to Do Not Disturb during family time",
+        "They speed up your device",
+        "They track your behavior online",
+        "They stop spam",
+        "They protect your passwords",
       ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you handle your own privacy settings on social media?",
-      options: [
-        "I don't adjust privacy settings at all",
-        "I use basic privacy settings but don't update them",
-        "I have moderate privacy settings that I check occasionally",
-        "I maintain strict privacy settings and review them regularly",
-      ],
-      scores: [0, 1, 2, 3],
-    },
-    {
-      question: "How do you demonstrate respectful online communication?",
-      options: [
-        "I don't pay attention to how I communicate online around my children",
-        "I try not to be obviously rude but don't make a special effort",
-        "I generally avoid negative interactions when my children are present",
-        "I actively demonstrate and discuss respectful online communication",
-      ],
-      scores: [0, 1, 2, 3],
+      scores: [0, 3, 0, 0],
     },
   ],
 };
 
 // Categories for scoring and recommendations
 const categoryInfo = {
-  technical: {
-    name: "Technical Safety Knowledge",
+  scams: {
+    name: "Scams",
     recommendations: [
-      "Research and implement appropriate parental controls for your devices",
-      "Learn about strong password creation and enable two-factor authentication",
-      "Stay updated on privacy settings for the platforms your child uses",
-      "Consider taking an online course about digital safety tools",
-      "Ensure your home network is secured with a strong password and up-to-date security",
+      "Notice different scam patterns",
+      "Stay updated with the latest scam trends",
+      "If it's too good to be true, then it may be a scam",
     ],
   },
-  communication: {
-    name: "Parent-Child Communication",
+  phishing: {
+    name: "Phishing",
     recommendations: [
-      "Schedule regular check-ins about online experiences",
-      "Create a supportive environment where children feel safe reporting problems",
-      "Develop a family media agreement together",
-      "Practice scenarios about handling uncomfortable online situations",
-      "Use news stories about online incidents as teachable moments",
+      "Be aware and diligent of your information",
+      "Stay updated with the latest phishing trends",
+      "Use Anti-Virus software to stay protected",
     ],
   },
-  awareness: {
-    name: "Threat Awareness",
+  malware: {
+    name: "Malware",
+    recommendations: [
+      "Differentiate what is real and what is malware",
+      "Research the apps and platforms your child uses",
+      "Use Anti-Virus software to stay protected",
+    ],
+  },
+  harassment: {
+    name: "Online Harassment",
     recommendations: [
       "Learn about common online risks like cyberbullying and predatory behavior",
       "Research the apps and platforms your child uses",
-      "Stay informed about new online trends and potential risks",
-      "Discuss age-appropriate dangers with your child without causing fear",
-      "Connect with other parents to share information about emerging online threats",
-    ],
-  },
-  boundaries: {
-    name: "Setting Healthy Boundaries",
-    recommendations: [
-      "Establish clear, consistent rules about screen time",
-      "Create tech-free zones and times in your home",
       "Develop guidelines about appropriate content and sharing",
-      "Adjust boundaries as children grow while maintaining safety",
-      "Use parental controls to support your boundaries, not replace discussions",
     ],
   },
-  monitoring: {
-    name: "Appropriate Monitoring",
+  inappropriate: {
+    name: "Inappropriate Content",
     recommendations: [
       "Find age-appropriate monitoring solutions that respect privacy",
-      "Explain to your child why and how you monitor their activities",
-      "Regularly review your child's contacts and connections",
       "Gradually adjust monitoring as children demonstrate responsibility",
       "Be transparent about monitoring instead of doing it secretly",
     ],
   },
-  modeling: {
-    name: "Positive Role Modeling",
+  privacy: {
+    name: "Privacy and Tracking",
     recommendations: [
-      "Be mindful of your own screen time habits",
-      "Demonstrate respectful online behavior",
-      "Show how to balance technology with other activities",
-      "Ask for permission before posting about your children online",
+      "Be mindful of the data that is being collected",
+      "Establish privacy measures to prevent being tracked",
       "Discuss your own online decision-making process out loud",
     ],
   },
@@ -410,7 +351,7 @@ const categoryInfo = {
  * @param {number} questionsPerCategory - Number of questions to select from each category
  * @returns {Array} Array of selected question objects with category property added
  */
-function getRandomQuestions(questionCount = 20, questionsPerCategory = 3) {
+function getRandomQuestions(questionCount = 25, questionsPerCategory = 3) {
   const selectedQuestions = [];
   const categories = Object.keys(questionDatabase);
 

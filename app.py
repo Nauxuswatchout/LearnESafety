@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-import mysql.connector
+# import mysql.connector
+# import pymysql
 import os
 
 app = Flask(__name__)
@@ -13,12 +14,20 @@ db_config = {
     'ssl_ca': os.path.join(os.path.dirname(__file__), 'DigiCertGlobalRootG2.crt.pem'),
     'ssl_verify_cert': True
 }
-
-
+ 
 def get_db_connection():
     connection = mysql.connector.connect(**db_config)
     return connection
 
+"""
+conn = pymysql.connect(
+     host="localhost",       
+     user="root",        
+     password="", # replace with the connection string
+     database="build_trust_in_it",
+     cursorclass=pymysql.cursors.DictCursor
+ )
+ """
 
 @app.route('/')
 def home():
@@ -61,13 +70,13 @@ def phishing_scams():
 def inappropriate_content():
     return render_template('dangers/inappropriate_content.html', title='Inappropriate Content')
 
-@app.route('/dangers/social-media-pressure')
-def social_media_pressure():
-    return render_template('dangers/social_media_pressure.html', title='Social Media Pressure')
+@app.route('/dangers/virus-malware')
+def virus_malware():
+    return render_template('dangers/virus_malware.html', title='Social Media Pressure')
 
-@app.route('/dangers/digital-addiction')
-def digital_addiction():
-    return render_template('dangers/digital_addiction.html', title='Digital Addiction')
+@app.route('/dangers/online-addiction')
+def online_addiction():
+    return render_template('dangers/online_addiction.html', title='Online Addiction')
 
 
 @app.route('/api/scam_internet_by_location')

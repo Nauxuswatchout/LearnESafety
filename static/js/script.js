@@ -1,4 +1,3 @@
-// Quiz functionality
 document.addEventListener("DOMContentLoaded", function () {
   // Quiz functionality
   const quizForm = document.getElementById("safety-quiz");
@@ -62,8 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       resultsContainer.style.display = "none";
     });
   }
-});
-document.addEventListener("DOMContentLoaded", function () {
+
   // Add active class to current page in navigation
   const currentLocation = window.location.pathname;
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -103,48 +101,91 @@ document.addEventListener("DOMContentLoaded", function () {
   checkCardVisibility();
   window.addEventListener("scroll", checkCardVisibility);
 
-  // Add mobile menu toggle functionality
-  const setupMobileMenu = () => {
-    const navbar = document.querySelector(".navbar");
-    const navLinks = document.querySelector(".nav-links");
+  // IMPROVED MOBILE MENU FUNCTIONALITY
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const navLinksElement = document.getElementById("navLinks");
+  const navbar = document.querySelector(".navbar");
 
-    // Remove existing mobile menu toggle if any
-    const existingToggle = document.querySelector(".mobile-menu-toggle");
-    if (existingToggle) {
-      existingToggle.remove();
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent default button behavior
+      navLinksElement.classList.toggle("active");
+      navbar.classList.toggle("expanded");
+
+      // Change icon between menu and close
+      const iconElement = mobileMenuToggle.querySelector(".material-icons");
+      if (iconElement) {
+        iconElement.textContent =
+          iconElement.textContent === "menu" ? "close" : "menu";
+      }
+    });
+  }
+
+  // Close menu when clicking a link
+  const navLinksItems = document.querySelectorAll(".nav-links a");
+  navLinksItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      if (window.innerWidth <= 768) {
+        navLinksElement.classList.remove("active");
+        navbar.classList.remove("expanded");
+
+        const iconElement = document.querySelector(
+          ".mobile-menu-toggle .material-icons"
+        );
+        if (iconElement) {
+          iconElement.textContent = "menu";
+        }
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (
+      window.innerWidth <= 768 &&
+      navLinksElement.classList.contains("active") &&
+      !navbar.contains(event.target)
+    ) {
+      navLinksElement.classList.remove("active");
+      navbar.classList.remove("expanded");
+
+      const iconElement = document.querySelector(
+        ".mobile-menu-toggle .material-icons"
+      );
+      if (iconElement) {
+        iconElement.textContent = "menu";
+      }
     }
+  });
 
-    if (window.innerWidth <= 768) {
-      // Create mobile menu toggle button
-      const mobileMenuToggle = document.createElement("button");
-      mobileMenuToggle.classList.add("mobile-menu-toggle");
-      mobileMenuToggle.innerHTML = "☰";
-      navbar.appendChild(mobileMenuToggle);
-
-      mobileMenuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-        // Change icon when menu is open
-        mobileMenuToggle.innerHTML = navLinks.classList.contains("show")
-          ? "✕"
-          : "☰";
-      });
-    }
-  };
-
-  // Check window size on initial load and resize
-  setupMobileMenu();
-  window.addEventListener("resize", setupMobileMenu);
-
-  // Handle resize events for responsive cover image
+  // Handle resize events for responsive design
   function handleResize() {
+    // Handle the cover container height
     const coverContainer = document.querySelector(".cover-container");
     if (coverContainer) {
       // Ensure cover container is always viewport height
       coverContainer.style.height = window.innerHeight + "px";
     }
+
+    // Reset mobile menu when switching to desktop
+    if (window.innerWidth > 768) {
+      if (navLinksElement) {
+        navLinksElement.classList.remove("active");
+      }
+      if (navbar) {
+        navbar.classList.remove("expanded");
+      }
+
+      const iconElement = document.querySelector(
+        ".mobile-menu-toggle .material-icons"
+      );
+      if (iconElement) {
+        iconElement.textContent = "menu";
+      }
+    }
   }
 
-  // Initial call and add event listener
+  // Initial call and add event listeners
   handleResize();
   window.addEventListener("resize", handleResize);
   window.addEventListener("orientationchange", handleResize);

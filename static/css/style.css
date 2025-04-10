@@ -28,13 +28,14 @@ body {
   align-items: center;
   background-color: #2c3e50;
   color: #fff;
-  padding: 6px 20px;  /* Minimal padding */
+  padding: 6px 20px; /* Minimal padding */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   height: 50px; /* Optional: fix height for consistency */
+  transition: all 0.3s ease;
 }
 
 .logo {
@@ -63,29 +64,29 @@ body {
   color: #3498db;
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+}
+
 /* Home Page Cover */
 .cover-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   margin: 0;
-  padding-top: 0 ; /* Pushes content below the fixed navbar */
+  padding-top: 0;
   background-color: #000;
 }
 
-/* Cover Video Styles */
-.cover-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-}
-
-/* Make sure existing cover-image styles remain as fallback */
 .cover-image {
   width: 100%;
   height: 100%;
@@ -458,18 +459,6 @@ footer {
   margin-top: 40px;
 }
 
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  outline: none;
-  padding: 5px;
-}
-
 /* Guidelines Page Styles */
 .guidelines-container {
   max-width: 95%;
@@ -785,6 +774,8 @@ footer {
   margin-bottom: 15px;
   font-style: italic;
   color: #666;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .pie-charts-flex {
@@ -872,23 +863,28 @@ footer {
 
 .data-viz-container {
   margin-bottom: 40px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .data-viz-container h3 {
   color: #2c3e50;
   margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .chart-container {
   height: 300px;
   margin-bottom: 15px;
   position: relative;
+  width: 100%;
 }
 
 .chart-description {
   color: #666;
   font-style: italic;
   margin-top: 10px;
+  font-size: 14px;
 }
 
 .resources-section {
@@ -947,18 +943,37 @@ footer {
   }
 }
 
+/* Fix for navbar on mobile */
 @media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Increased padding to accommodate expanded navbar */
+  }
+
   .navbar {
     flex-direction: column;
+    height: auto;
+    min-height: 60px;
     padding: 15px;
-    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.expanded {
+    height: auto;
+    padding-bottom: 15px;
   }
 
   .mobile-menu-toggle {
     display: block;
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 15px;
+    z-index: 1100;
+  }
+
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
   }
 
   .nav-links {
@@ -969,7 +984,7 @@ footer {
     margin-top: 50px;
   }
 
-  .nav-links.show {
+  .nav-links.active {
     display: flex;
   }
 
@@ -979,6 +994,7 @@ footer {
 
   .cover-container {
     height: 100vh; /* Keep full viewport height on mobile */
+    margin-top: -10px; /* Adjust if there's a gap */
   }
 
   .cover-title h1 {
@@ -1044,8 +1060,17 @@ footer {
     font-size: 36px;
   }
 
+  /* Fix for page cover on mobile */
   .page-cover-container {
-    height: 40vh; /* Even smaller on mobile */
+    height: 50vh; /* Reduce height on mobile */
+    margin-top: -10px;
+    width: 100%;
+  }
+
+  .page-cover-title {
+    max-width: 80%; /* Increase width on mobile */
+    left: 10%;
+    text-align: center;
   }
 
   .page-cover-title h1 {
@@ -1055,8 +1080,76 @@ footer {
   .page-cover-title p {
     font-size: 16px;
   }
+
+  /* Data visualization mobile fixes */
+  .data-viz-container {
+    margin-bottom: 30px;
+    padding: 0 5px;
+  }
+
+  .data-viz-container h3 {
+    font-size: 16px;
+  }
+
+  .chart-container {
+    height: 250px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chart-description {
+    font-size: 12px;
+  }
+
+  .video-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-card {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 20px;
+  }
+
+  .video-card iframe {
+    height: 200px;
+  }
+
+  /* Fix for danger pages on mobile */
+  .danger-page-container {
+    flex-direction: column;
+    padding: 0 5px;
+  }
+
+  .danger-info-section,
+  .danger-data-section {
+    min-width: 100%;
+    padding: 15px;
+  }
+
+  .danger-main-icon .material-icons {
+    font-size: 50px;
+    padding: 15px;
+  }
+
+  .visualization-placeholder {
+    height: 200px;
+    padding: 10px;
+  }
+
+  .pie-charts-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
 
+/* Additional fixes for very small screens */
 @media (max-width: 480px) {
   /* Extra small devices */
   .page-content {
@@ -1097,14 +1190,50 @@ footer {
   }
 
   .page-cover-container {
-    height: 35vh;
+    height: 40vh;
+  }
+
+  .page-cover-title {
+    max-width: 90%;
+    left: 5%;
   }
 
   .page-cover-title h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .page-cover-title p {
+    font-size: 14px;
+  }
+
+  /* Data visualization fixes for very small screens */
+  .chart-container {
+    height: 200px;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .visualization-placeholder {
+    height: 180px;
+    font-size: 12px;
+  }
+
+  .data-viz-container h3 {
+    font-size: 15px;
+  }
+
+  .chart-description {
+    font-size: 11px;
+  }
+
+  .resources-section h2 {
+    font-size: 20px;
+  }
+
+  .resources-section li {
     font-size: 14px;
   }
 }
