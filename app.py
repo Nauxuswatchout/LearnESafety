@@ -19,6 +19,7 @@ def get_db_connection():
     connection = mysql.connector.connect(**db_config)
     return connection
 
+
 @app.route('/')
 def home():
     return render_template('index.html', title='Home')
@@ -67,6 +68,45 @@ def social_media_pressure():
 @app.route('/dangers/digital-addiction')
 def digital_addiction():
     return render_template('dangers/digital_addiction.html', title='Digital Addiction')
+
+
+@app.route('/api/scam_internet_by_location')
+def scam_internet_by_location():
+    with conn.cursor() as cursor:
+        query = """
+            SELECT 
+                l.location_name,
+                s.Scam_Contact_Mode,
+                SUM(s.Number_of_reports) AS total_reports
+            FROM scam s
+            JOIN location l ON s.location_id = l.location_id
+            WHERE s.Scam_Contact_Mode IN (
+                'Email', 'Mobile apps', 'Internet', 'Social media/Online forums'
+            )
+            GROUP BY l.location_name, s.Scam_Contact_Mode
+            ORDER BY l.location_name, s.Scam_Contact_Mode;
+        """
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return jsonify(results)
+    
+@app.route('/api/activity_pie_data')
+def activity_trends():
+    with conn.cursor() as cursor:
+        query = """
+            SELECT 
+            l.location_name AS state,
+            a.year_range,
+            ROUND(a.screen_activities, 1) AS screen_participation,
+            ROUND(a.reading_pleasure, 1) AS reading_participation,
+            ROUND(a.creative_activities, 1) AS creative_participation
+            FROM activity a
+            JOIN location l ON a.location_id = l.location_id
+            ORDER BY a.year_range, a.location_id;
+        """
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

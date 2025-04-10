@@ -72,39 +72,61 @@
     </div>
 
     <div class="danger-data-section">
-      <h2>Statistics and Articles</h2>
+      <h2>Statistics, Videos and Articles</h2>
 
       <div class="data-viz-container">
-        <h3>Title</h3>
-        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
-          Visualisation
-        </div>
-        <p class="chart-description">Description</p>
+        <h3>Scam Reports by Contact Mode (Internet-based)</h3>
+        <canvas id="scamChart" width="1000" height="500"></canvas>
+        <p class="chart-description">A national overview of scam reports reveals clear patterns in how scammers target internet users. Email, mobile apps, and social media are among the most common methods, with variations in report frequency across states highlighting digital risks throughout Australia.</p>
       </div>
 
-      <div class="data-viz-container">
-        <h3>Title</h3>
-        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
-          Visualisation
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe 
+            src="https://www.youtube.com/embed/Vfv5yv-NH30" 
+            frameborder="0" 
+            allowfullscreen 
+            title="Stop, Think and Protect Yourself against Online Scams | BTN High">
+          </iframe>
+          <p>How to protect yourself as scams advance with technology</p>
         </div>
-        <p class="chart-description">Description</p>
-      </div>
 
-      <div class="data-viz-container">
-        <h3>Title</h3>
-        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
-          Visualisation
-        </div>
-        <p class="chart-description">Description</p>
       </div>
 
       <div class="resources-section">
-        <h2>Resources for Parents</h2>
+        <h2>Scam Awareness & Online Safety</h2>
         <ul>
-          <li><strong>Title</strong>: Short description</li>
-          <li><strong>Title</strong>: Short description</li>
-          <li><strong>Title</strong>: Short description</li>
-          <li><strong>Title</strong>: Short description</li>
+          <li>
+            <strong>
+              <a href="https://www.accc.gov.au/media-release/accc-welcomes-passage-of-world-first-scams-prevention-laws" target="_blank" rel="noopener noreferrer">
+                Australian Prevention Laws
+              </a>
+            </strong>: ACCC announces new laws to combat scams — the world’s first of their kind.
+          </li>
+      
+          <li>
+            <strong>
+              <a href="https://www.bbc.com/news/articles/c89vjj0lxx9o" target="_blank" rel="noopener noreferrer">
+                Australia Approves Social Media Ban on Under-16s
+              </a>
+            </strong>: A look at the new age restrictions and efforts to protect young users online.
+          </li>
+      
+          <li>
+            <strong>
+              <a href="https://news.nab.com.au/news/explainer-five-scams-to-watch-in-2025/" target="_blank" rel="noopener noreferrer">
+                Five Scams to Watch in 2025
+              </a>
+            </strong>: A guide from NAB on emerging scam types and how to stay informed.
+          </li>
+      
+          <li>
+            <strong>
+              <a href="https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams" target="_blank" rel="noopener noreferrer">
+                Help to Spot and Avoid Scams
+              </a>
+            </strong>: Practical tips from Scamwatch to identify and avoid online scams.
+          </li>
         </ul>
       </div>
     </div>
@@ -114,4 +136,7 @@
     >← Back to All Dangers</a
   >
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/scam_chart.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 {% endblock %}

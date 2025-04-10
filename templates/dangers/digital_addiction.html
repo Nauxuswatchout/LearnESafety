@@ -73,11 +73,20 @@
       </div>
 
       <div class="data-viz-container">
-        <h3>Title</h3>
-        <div class="visualization-placeholder" data-viz-id="phishing-awareness">
-          Visualisation
+        <h3>VIC Activity Participation (By Year)</h3>
+      
+        <div class="pie-charts-flex">
+          <div class="pie-chart-block">
+            <h4>2017–2018</h4>
+            <canvas id="vicPie2017" width="280" height="280"></canvas>
+          </div>
+          <div class="pie-chart-block">
+            <h4>2021–2022</h4>
+            <canvas id="vicPie2021" width="280" height="280"></canvas>
+          </div>
         </div>
-        <p class="chart-description">Description</p>
+        <p class="chart-description">Over 6,000 Victorian children aged 5 to 14 were surveyed to understand how they spend their time.
+          Screen use remained consistently high at over 90 percent, with a sharp increase in those spending more than 20 hours per week on screens. In contrast, participation in reading and creative activities declined, highlighting growing concerns about balance in children's daily routines.</p>
       </div>
 
       <div class="resources-section">
@@ -96,4 +105,6 @@
     >← Back to All Dangers</a
   >
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/activity_trends.js') }}"></script>
 {% endblock %}
