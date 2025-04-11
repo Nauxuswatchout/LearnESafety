@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  const letters = 'アァイィウエエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const matrix = letters.split('');
   
   const fontSize = 14;
   const columns = Math.ceil(canvas.width / fontSize);
   let drops = [];
   
-  
+  // Initialize drops array
   function initDrops() {
     drops = [];
     for (let i = 0; i < columns; i++) {
@@ -35,20 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
   initDrops();
   
   function draw() {
-   
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; 
+    // Add semi-transparent black layer for fade effect (lighter fade)
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; // 降低黑色层的不透明度
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    
+    // Loop through drops
     for (let i = 0; i < drops.length; i++) {
       // Random character
       const text = matrix[Math.floor(Math.random() * matrix.length)];
       
-      
+      // Vary character brightness for better visual effect
       if (Math.random() > 0.8) {
-        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)'; 
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)'; // 提高亮字符的不透明度
       } else {
-        ctx.fillStyle = 'rgba(0, 200, 0, 0.5)';
+        ctx.fillStyle = 'rgba(0, 200, 0, 0.5)'; // 提高暗字符的不透明度
       }
       
       // Draw character
@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-
+  // Start animation with delay
   setTimeout(function() {
-
+    // Draw the matrix effect every 33ms (approx 30 FPS)
     setInterval(draw, 33);
   }, 500);
 });

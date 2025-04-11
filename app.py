@@ -1,19 +1,24 @@
+
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 import mysql.connector
+
+# import pymysql
 import os
 import datetime
 import time
 
 app = Flask(__name__)
-app.secret_key = 'TRUST-IT-07-secret-key'
+app.secret_key = 'TRUST-IT-07-secret-key'  
 
-# Session configuration
+# Force cookies to not be permanent
 app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_COOKIE_SECURE'] = False  # Set to True in production with HTTPS
+# Set cookie to secure and httponly
+app.config['SESSION_COOKIE_SECURE'] = True
 app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=1)
+# Set very short session lifetime
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(seconds=0)
 
-PASSWORD = "whosyourdaddy"
+PASSWORD = "TA07"
 
 # Database configuration
 db_config = {
@@ -24,21 +29,24 @@ db_config = {
     'ssl_ca': os.path.join(os.path.dirname(__file__), 'DigiCertGlobalRootG2.crt.pem'),
     'ssl_verify_cert': True
 }
-
-# Add headers to prevent caching
-@app.after_request
-def add_no_cache_headers(response):
-    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '-1'
-    return response
  
 def get_db_connection():
     connection = mysql.connector.connect(**db_config)
     return connection
 
+"""
+conn = pymysql.connect(
+     host="localhost",       
+     user="root",        
+     password="", # replace with the connection string
+     database="build_trust_in_it",
+     cursorclass=pymysql.cursors.DictCursor
+ )
+ """
+
+
+
 def login_required(route_function):
-    """Decorator to require login for routes"""
     def wrapper(*args, **kwargs):
         # Check if user is authenticated
         if 'authenticated' in session and session['authenticated']:
@@ -50,12 +58,9 @@ def login_required(route_function):
     wrapper.__name__ = route_function.__name__
     return wrapper
 
+
 @app.route('/')
 def login():
-    # If already authenticated, redirect to home
-    if 'authenticated' in session and session['authenticated']:
-        return redirect(url_for('home'))
-    
     # Force login on root access
     session.clear()
     return render_template('login.html')
@@ -146,8 +151,8 @@ def virus_malware():
 def online_addiction():
     return render_template('dangers/online_addiction.html', title='Online Addiction')
 
+
 @app.route('/api/scam_internet_by_location')
-@login_required
 def scam_internet_by_location():
     conn = get_db_connection()
     try:
@@ -176,7 +181,6 @@ def scam_internet_by_location():
         return jsonify({"error": str(e)}), 500
     
 @app.route('/api/activity_pie_data')
-@login_required
 def activity_trends():
     conn = get_db_connection()
     try:
@@ -202,12 +206,12 @@ def activity_trends():
             conn.close()
         return jsonify({"error": str(e)}), 500
 
-# Clear session cookies for root access
+# Clear session cookies for every request
 @app.before_request
 def clear_session_on_root():
-    if request.path == '/' and request.method == 'GET':
+    if request.path == '/':
         session.clear()
 
 if __name__ == '__main__':
     # Use HTTPS in production
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')
