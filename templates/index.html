@@ -70,29 +70,8 @@
       </div>
     </div>
 
-    <!-- Children Card -->
-    <div class="card interactive-card">
-      <div class="card-image">
-        <img
-          src="{{ url_for('static', filename='images/playground.jpg') }}"
-          alt="For Children"
-        />
-      </div>
-      <h2 class="card-title">Educational Playground</h2>
-      <div class="card-overlay">
-        <div class="card-content">
-          <h3>Educational Playground</h3>
-          <p>
-            Learn about internet safety in a fun and engaging way. Discover how
-            to protect yourself online, be a good digital citizen, and enjoy the
-            internet safely.
-          </p>
-          <a href="{{ url_for('children') }}" class="card-button"
-            >Children's Guide</a
-          >
-        </div>
-      </div>
-    </div>
+    <!-- Playground Button (Independent) -->
+    <a id="playground-button" href="{{ url_for('home') }}"></a>
 
     <!-- Questionnaire Card -->
     <div class="card interactive-card">
@@ -119,4 +98,7 @@
     </div>
   </div>
 </div>
+
+<!-- 引入外部JavaScript文件 -->
+<script src="{{ url_for('static', filename='js/playground_button.js') }}"></script>
 {% endblock %}
