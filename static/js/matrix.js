@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789¥€£¢§±@#$%&*()[]{}|/\\<>!?+=~^¡¿Ææ文字デジタル字符ﾊｶﾀｻﾅﾏﾔﾗﾜｦｲｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃ♠♥♦♣★☆✓✗';
   const matrix = letters.split('');
   
   const fontSize = 14;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function draw() {
     // Add semi-transparent black layer for fade effect (lighter fade)
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; // 降低黑色层的不透明度
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; 
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Loop through drops
@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Vary character brightness for better visual effect
       if (Math.random() > 0.8) {
-        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)'; // 提高亮字符的不透明度
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)'; 
       } else {
-        ctx.fillStyle = 'rgba(0, 200, 0, 0.5)'; // 提高暗字符的不透明度
+        ctx.fillStyle = 'rgba(0, 200, 0, 0.5)'; 
       }
       
       // Draw character
